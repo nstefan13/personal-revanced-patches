@@ -116,6 +116,9 @@ gradle-app.setting
 # Potentially copyrighted test APK
 *.apk
 
+# Generated secrets file
+SECRETS.txt
+
 # Ignore vscode config
 .vscode/
 
