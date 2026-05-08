@@ -77,6 +77,11 @@ jobs:
               tag,
             });
 
+            const createdAtRaw = release.published_at ?? release.created_at;
+            const createdAt = (createdAtRaw ?? new Date().toISOString())
+              .replace(/\.\d+Z$/, "")
+              .replace(/Z$/, "");
+
             const rvpAsset = release.assets.find(
               (asset) => asset.name.endsWith(".rvp") && !asset.name.endsWith(".rvp.asc"),
             );
@@ -92,7 +97,7 @@ jobs:
 
             const payload = {
               download_url: rvpAsset.browser_download_url,
-              created_at: release.published_at ?? release.created_at,
+              created_at: createdAt,
               signature_download_url: signatureAsset?.browser_download_url ?? null,
               description: `Patches release ${tag}`,
               version: tag.replace(/^v/, ""),
