@@ -1,3 +1,10 @@
+## [1.1.1](https://github.com/nstefan13/personal-revanced-patches/compare/v1.1.0...v1.1.1) (2026-05-08)
+
+
+### Bug Fixes
+
+* use local datetime in manager source ([c8cf0e3](https://github.com/nstefan13/personal-revanced-patches/commit/c8cf0e386b75989b9339456a1a151720b463cccb))
+
 # [1.1.0](https://github.com/nstefan13/personal-revanced-patches/compare/v1.0.1...v1.1.0) (2026-05-08)
 
 
