@@ -62,6 +62,60 @@ jobs:
           ORG_GRADLE_PROJECT_githubPackagesPassword: ${{ secrets.GITHUB_TOKEN }}
           ORG_GRADLE_PROJECT_githubPackagesRepository: ${{ github.repository }}
 
+      - name: Update manager-patches.json
+        if: steps.release.outputs.new_release_published == 'true'
+        uses: actions/github-script@v8
+        with:
+          script: |
+            const fs = require("fs");
+            const { owner, repo } = context.repo;
+            const tag = "${{ steps.release.outputs.new_release_git_tag }}";
+
+            const { data: release } = await github.rest.repos.getReleaseByTag({
+              owner,
+              repo,
+              tag,
+            });
+
+            const rvpAsset = release.assets.find(
+              (asset) => asset.name.endsWith(".rvp") && !asset.name.endsWith(".rvp.asc"),
+            );
+
+            if (!rvpAsset) {
+              core.setFailed(`Could not find .rvp asset for ${tag}.`);
+              return;
+            }
+
+            const signatureAsset = release.assets.find((asset) =>
+              asset.name.endsWith(".rvp.asc"),
+            );
+
+            const payload = {
+              download_url: rvpAsset.browser_download_url,
+              created_at: release.published_at ?? release.created_at,
+              signature_download_url: signatureAsset?.browser_download_url ?? null,
+              description: `Patches release ${tag}`,
+              version: tag.replace(/^v/, ""),
+            };
+
+            fs.writeFileSync("manager-patches.json", `${JSON.stringify(payload, null, 2)}\n`);
+
+      - name: Commit manager-patches.json
+        if: steps.release.outputs.new_release_published == 'true'
+        run: |
+          if git diff --quiet -- manager-patches.json; then
+            echo "manager-patches.json is already up to date"
+            exit 0
+          fi
+
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+          git add manager-patches.json
+          git commit -m "chore: update manager patches source [skip ci]"
+          git pull --rebase origin "${GITHUB_REF_NAME}"
+          git push
+
       - name: Attest
         if: steps.release.outputs.new_release_published == 'true'
         uses: actions/attest@v4
