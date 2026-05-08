@@ -1,5 +1,8 @@
 group = "app.revanced"
 
+val githubPackagesRepository =
+    (findProperty("githubPackagesRepository") as String?) ?: "revanced/revanced-patches"
+
 patches {
     about {
         name = "ReVanced Patches"
@@ -35,7 +38,7 @@ publishing {
     repositories {
         maven {
             name = "githubPackages"
-            url = uri("https://maven.pkg.github.com/revanced/revanced-patches")
+            url = uri("https://maven.pkg.github.com/$githubPackagesRepository")
             credentials(PasswordCredentials::class)
         }
     }
