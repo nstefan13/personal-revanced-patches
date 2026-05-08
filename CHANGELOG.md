@@ -1,3 +1,10 @@
+# [1.1.0](https://github.com/nstefan13/personal-revanced-patches/compare/v1.0.1...v1.1.0) (2026-05-08)
+
+
+### Features
+
+* add manager patches endpoint ([cd8b71f](https://github.com/nstefan13/personal-revanced-patches/commit/cd8b71f3bc6830cce30c25b917614f0d2935b36d))
+
 ## [1.0.1](https://github.com/nstefan13/personal-revanced-patches/compare/v1.0.0...v1.0.1) (2026-05-08)
 
 
