@@ -1,3 +1,10 @@
+## [1.0.1](https://github.com/nstefan13/personal-revanced-patches/compare/v1.0.0...v1.0.1) (2026-05-08)
+
+
+### Bug Fixes
+
+* support fork package publishing ([6e677d5](https://github.com/nstefan13/personal-revanced-patches/commit/6e677d5ed1afb87f0426f26affe3c03d1c771fa7))
+
 # 1.0.0 (2026-05-08)
 
 
