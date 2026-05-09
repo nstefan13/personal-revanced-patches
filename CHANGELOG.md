@@ -1,3 +1,10 @@
+## [1.2.1](https://github.com/nstefan13/personal-revanced-patches/compare/v1.2.0...v1.2.1) (2026-05-09)
+
+
+### Bug Fixes
+
+* correct artifact deletion order in release workflow and add compatibleWith to patch ([74ad722](https://github.com/nstefan13/personal-revanced-patches/commit/74ad7224ca2b1196aff27a57dcbef15e79c3046b))
+
 # [1.2.0](https://github.com/nstefan13/personal-revanced-patches/compare/v1.1.1...v1.2.0) (2026-05-09)
 
 
