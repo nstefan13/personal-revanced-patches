@@ -35,7 +35,7 @@ jobs:
           ORG_GRADLE_PROJECT_githubPackagesUsername: ${{ github.actor }}
           ORG_GRADLE_PROJECT_githubPackagesPassword: ${{ secrets.GITHUB_TOKEN }}
           ORG_GRADLE_PROJECT_githubPackagesRepository: ${{ github.repository }}
-        run: ./gradlew :patches:buildAndroid clean
+        run: ./gradlew clean :patches:buildAndroid
 
       - name: Setup Node.js
         uses: actions/setup-node@v6
