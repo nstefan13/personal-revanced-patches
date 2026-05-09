@@ -1,3 +1,10 @@
+## [1.2.2](https://github.com/nstefan13/personal-revanced-patches/compare/v1.2.1...v1.2.2) (2026-05-09)
+
+
+### Bug Fixes
+
+* explicitly specify remote and branch for workflow git push ([180608c](https://github.com/nstefan13/personal-revanced-patches/commit/180608cc367cccd1e8079dc2949d57f11135ad98))
+
 ## [1.2.1](https://github.com/nstefan13/personal-revanced-patches/compare/v1.2.0...v1.2.1) (2026-05-09)
 
 
