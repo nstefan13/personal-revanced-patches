@@ -13,7 +13,7 @@ apksig = "9.0.1"
 # TODO: Adjust once https://github.com/google/protobuf-gradle-plugin/pull/797 is merged.
 protobuf = "master-SNAPSHOT"
 protoc = "4.34.0"
-shadow = "9.4.0"
+shadow = "9.4.2"
 
 [libraries]
 annotation = { module = "androidx.annotation:annotation", version.ref = "annotation" }
